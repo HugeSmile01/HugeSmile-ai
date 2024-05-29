@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HugeSmile AI</title>
+  <style>
+    /* Importing Google font - Poppins */
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #e0e0e0;
+      overflow: hidden;
+    }
+    .chat-window {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .chat-log {
+      width: 100%;
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .chat-log .message {
+      margin-bottom: 10px;
+    }
+    .chat-log .message .username {
+      font-weight: bold;
+    }
+    .chat-log .message .user {
+      color: #4CAF50;
+    }
+    .chat-log .message .ai {
+      color: #007BFF;
+    }
+    .chat-input-container {
+      width: 100%;
+      display: flex;
+      padding: 10px;
+      background-color: #ffffff;
+      border-top: 1px solid #ddd;
+    }
+    .chat-input {
+      width: 85%;
+      height: 40px;
+      border: 1px solid #ddd;
+      border-radius: 10px 0 0 10px;
+      padding: 10px;
+      font-size: 16px;
+      outline: none;
+    }
+    .send-btn {
+      width: 15%;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 0 10px 10px 0;
+      cursor: pointer;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .send-btn:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <section class="chat-window">
+    <h1>HugeSmile AI</h1>
+    <div class="chat-log" id="chat-log"></div>
+    <div class="chat-input-container">
+      <input type="text" id="chat-input" class="chat-input" placeholder="Type a message...">
+      <button class="send-btn" id="send-btn">Send</button>
+    </div>
+  </section>
+
+  <script>
+    class NLPModel {
+  constructor() {
+    this.intents = [
+      {
+        intent: "greeting",
+        patterns: ["hello", "hi", "hey", "hi there"],
+        responses: [
+          "Hello! How can I assist you today?",
+          "Hi there! What's on your mind?",
+          "Hey! How's it going?",
+          "Hi! I'm happy to help you with anything."
+        ]
+      },
+      {
+        intent: "goodbye",
+        patterns: ["bye", "goodbye", "see you later"],
+        responses: [
+          "Goodbye! It was nice chatting with you.",
+          "See you later! Have a great day.",
+          "Bye for now! Come back soon.",
+          "Goodbye! Take care."
+        ]
+      },
+      {
+        intent: "help",
+        patterns: ["help", "assist", "support"],
+        responses: [
+          "I'd be happy to help you with any questions or issues you have.",
+          "What do you need help with? I'm here to assist you.",
+          "How can I support you today?",
+          "I'm here to help. What's on your mind?"
+        ]
+      },
+      {
+        intent: "date",
+        patterns: ["date", "current date", "today's date"],
+        responses: ["Today's date is " + new Date().toLocaleDateString() + "."]
+      },
+      {
+        intent: "time",
+        patterns: ["time", "current time", "current hour"],
+        responses: ["The current time is " + new Date().toLocaleTimeString() + "."]
+      },
+      {
+        intent: "weather",
+        patterns: ["weather", "current weather"],
+        responses: ["The weather in Hingatungan Silago, Southern Leyte is currently sunny."]
+      },
+      {
+        intent: "search",
+        patterns: ["search", "internet search", "find"],
+        responses: ["Here are the search results for [Your search term]: [Search results will appear here]"]
+      },
+      {
+        intent: "store",
+        patterns: ["store", "save", "remember"],
+        responses: ["Information stored successfully."]
+      },
+      {
+        intent: "retrieve",
+        patterns: ["retrieve", "get", "fetch"],
+        responses: ["Here is the stored information: [Stored information will appear here]"]
+      },
+      {
+        intent: "fact",
+        patterns: ["fact", "interesting fact"],
+        responses: [
+          "Did you know that the world's oldest piece of chewing gum is over 9,000 years old?",
+          "The shortest war in history was between Britain and Zanzibar on August 27, 1896. Zanzibar surrendered after 38 minutes."
+          // Add more interesting facts here
+        ]
+      },
+      {
+        intent: "quote",
+        patterns: ["quote", "inspirational quote"],
+        responses: [
+          "In the end, it's not the years in your life that count. It's the life in your years. - Abraham Lincoln",
+          "Believe you can and you're halfway there. - Theodore Roosevelt"
+          // Add more inspirational quotes here
+        ]
+      },
+      {
+        intent: "joke",
+        patterns: ["joke", "funny joke"],
+        responses: [
+          "Why don't scientists trust atoms? Because they make up everything!",
+          "Why did the scarecrow win an award? Because he was outstanding in his field!"
+          // Add more jokes here
+        ]
+      },
+      // Additional intents and responses covering various topics
+      {
+        intent: "math",
+        patterns: ["math", "math problem"],
+        responses: [
+          "What is the capital of Japan? - Tokyo",
+          "What is the square root of 144? - 12",
+          "What is 10 multiplied by 5? - 50"
+          // Add more math problems here
+        ]
+      },
+      {
+        intent: "recipe",
+        patterns: ["recipe", "cooking", "cook"],
+        responses: [
+          "Here's a recipe for spaghetti carbonara: [Recipe will appear here]",
+          "How about trying a chicken stir-fry? [Recipe will appear here]"
+          // Add more recipes here
+        ]
+      },
+      {
+        intent: "music",
+        patterns: ["music", "song"],
+        responses: [
+          "Do you want to listen to some jazz music? Here's a playlist: [Playlist link]",
+          "How about some classical music? Here's a selection: [Playlist link]"
+          // Add more music suggestions here
+        ]
+      },
+      // Add more intents and responses covering various topics
+      {
+  intent: "creator",
+  patterns: ["creator", "created by", "who created you" , "who built you", "your Programmer", "your master", "who developed you", "who programmed you"],
+  responses: [
+    "I was created by John Rish Ladica.",
+    "John Rish Ladica is my talented creator.",
+    "The brilliant mind behind me is John Rish Ladica.",
+    "John Rish Ladica brought me to life.",
+    "Meet my creator, John Rish Ladica.",
+    "John Rish Ladica is the mastermind behind my existence.",
+    "I owe my existence to John Rish Ladica.",
+    "John Rish Ladica is the genius developer behind me.",
+    "John Rish Ladica crafted me with skill and passion.",
+    "I'm the brainchild of John Rish Ladica.",
+    "John Rish Ladica, the creator of this AI, is a full stack developer from Silago, Southern Leyte.",
+    "John Rish Ladica, a talented full stack developer, is my creator.",
+    "John Rish Ladica, a 17-year-old boy from Silago, Southern Leyte, is my creator.",
+    "John Rish Ladica, a student leader with an awesome personality, is my creator."
+    // Add more personalized responses here
+  ]
+},
+,
+      // Intent for the creator
+    ];
+  }
+
+  processInput(input) {
+  const tokens = input.toLowerCase().split(" ");
+  for (let i = 0; i < this.intents.length; i++) {
+    if (this.intents[i] && this.intents[i].patterns) {
+      for (let j = 0; j < this.intents[i].patterns.length; j++) {
+        if (tokens.includes(this.intents[i].patterns[j])) {
+          const responseIndex = Math.floor(Math.random() * this.intents[i].responses.length);
+          return this.intents[i].responses[responseIndex];
+        }
+      }
+    }
+  }
+  return "I didn't understand that. Can you please rephrase?";
+}
+
+}
+
+const nlpModel = new NLPModel();
+const chatInput = document.getElementById('chat-input');
+const sendBtn = document.getElementById('send-btn');
+const chatLog = document.getElementById('chat-log');
+
+sendBtn.addEventListener('click', () => {
+  const userInput = chatInput.value.trim();
+  if (userInput !== "") {
+    const response = nlpModel.processInput(userInput);
+    chatLog.innerHTML += `<div class="message"><span class="username">You:</span> ${userInput}</div>`;
+    chatLog.innerHTML += `<div class="message"><span class="ai">AI:</span> ${response}</div>`;
+    chatInput.value = "";
+  }
+});
+
+  </script>
+</body>
+</html>
