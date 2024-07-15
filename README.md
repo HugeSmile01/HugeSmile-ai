@@ -1,6 +1,6 @@
 # HugeSmile AI
 
-![HugeSmile AI Logo](https://scontent.fceb1-2.fna.fbcdn.net/v/t39.30808-6/429648125_418410317356446_5917264408724375089_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG_A-bR0DaQXzw31lTrqv8HUBHZbr4pweRQEdluvinB5MzXMRU-lWsLF8bWGTTCfbmi7Jdkc1StRQSe-O_uPF7h&_nc_ohc=oVIuMWkzsZ4Q7kNvgEiI8Lt&_nc_zt=23&_nc_ht=scontent.fceb1-2.fna&oh=00_AYDdabbzdj0nJpUXI_MOKOsDLnJhm_HyEsXmTi2ka5kwZA&oe=665BC3EB)
+![HugeSmile AI Logo]([https://scontent.fceb1-2.fna.fbcdn.net/v/t39.30808-6/429648125_418410317356446_5917264408724375089_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeG_A-bR0DaQXzw31lTrqv8HUBHZbr4pweRQEdluvi[nB5MzXMRU-lWsLF8bWGTTCfbmi7Jdkc1StRQSe-O_uPF7h&_nc_ohc=oVIuMWkzsZ4Q7kNvgEiI8Lt&_nc_zt=23&_nc_ht=scontent.fceb1-2.fna&oh=00_AYDdabbzdj0nJpUXI_MOKOsDLnJhm_HyEsXmTi2ka5kwZA&oe=665BC3EB](https://free.facebook.com/photo.php?fbid=496619462868864&id=100075624436537&set=a.108075415056606&eav=AfaZ83wG_gNJEnkRzzguEDOA013ftJtMxkxIueUYyFxU32gPa2bJbOKSD0xeJL2tBuY&paipv=0)](https://free.facebook.com/photo.php?fbid=496619462868864&id=100075624436537&set=a.108075415056606&eav=AfaZ83wG_gNJEnkRzzguEDOA013ftJtMxkxIueUYyFxU32gPa2bJbOKSD0xeJL2tBuY&paipv=0))
 
 ## Introduction
 
