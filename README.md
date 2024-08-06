@@ -1,6 +1,6 @@
 # HugeSmile AI
 
-![HugeSmile AI Logo](https://z-m-scontent.fceb1-4.fna.fbcdn.net/v/t39.30808-6/450783277_496619466202197_8954904342808535073_n.jpg?stp=cp0_dst-jpg_e15_fr_q65&_nc_cat=107&ccb=1-7&_nc_sid=d0a8c7&efg=eyJpIjoibyJ9&_nc_eui2=AeECWHrqNfgobekUdcguZZ6bPY6i4ewH2509jqLh7AfbnfQOF7OSVDexm5Q1V3bfet1c6v1GSAJBzTMlXzSPr1HV&_nc_ohc=pplpv5dZFskQ7kNvgGvWWZV&_nc_ad=z-m&_nc_cid=1119&_nc_eh=61e773fa113d045df26ecd22b07ed70b&_nc_zt=23&_nc_rml=0&_nc_ht=z-m-scontent.fceb1-4.fna&oh=00_AYAJc9eVWfSULR84ITnorWQH3AU_BJFsG89w2rXDAoOSQQ&oe=669AAF78)
+![HugeSmile AI Logo](https://scontent.fmnl25-4.fna.fbcdn.net/v/t39.30808-6/450783277_496619466202197_8954904342808535073_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeECWHrqNfgobekUdcguZZ6bPY6i4ewH2509jqLh7AfbnfQOF7OSVDexm5Q1V3bfet1c6v1GSAJBzTMlXzSPr1HV&_nc_ohc=L9KWi6thYdUQ7kNvgE8iutV&_nc_zt=23&_nc_ht=scontent.fmnl25-4.fna&oh=00_AYAbxZqWqVn5m-gRqqz2W0NNoOzDjldBaHAXafniw-edsw&oe=66B7E8B8)
 
 ## Introduction
 
